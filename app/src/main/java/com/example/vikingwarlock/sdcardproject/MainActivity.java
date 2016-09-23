@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import com.nostra13.universalimageloader.*;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -43,7 +44,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data){
-
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == 2) {
+            if (requestCode == REQUESTCODE) {
+                GridItem item = (GridItem) data.getSerializableExtra("result");
+                ImageView imgview = (ImageView) findViewById(R.id.imageView);
+                if (imgview!=null)
+                    ImageLoader.getInstance().displayImage("file://" + item.filepath, imgview);
+            }
+        }
     }
 }

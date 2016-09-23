@@ -18,7 +18,8 @@ import java.util.Map;
 
 public class SDView extends AppCompatActivity {
 
-//    List<Map<String,Object>> list;
+    //    List<Map<String,Object>> list;
+    List<GridItem> datalist;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +30,14 @@ public class SDView extends AppCompatActivity {
 
             gv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
+                    GridItem item = datalist.get(position);
+                    Intent intent=new Intent();
+                    intent.setClass(SDView.this,MainActivity.class);
+                    Bundle bundle=new Bundle();
+                    bundle.putSerializable("result",item);
+                    intent.putExtras(bundle);
+                    setResult(2,intent);
+                    finish();
                 }
             });
         }
@@ -45,13 +54,14 @@ public class SDView extends AppCompatActivity {
             Toast.makeText(this, "SDCard Not Writable", Toast.LENGTH_LONG).show();
             return;
         }
+        datalist = SDCardHelper.getFileList();
         bindData();
     }
 
     private void bindData() {
         GridView gridView = (GridView) findViewById(R.id.gridView);
         GridItemAdapter adapter = new GridItemAdapter(null, null, null, this);
-        adapter.setupData(SDCardHelper.getFileList());
+        adapter.setupData(datalist);
         if (gridView != null)
             gridView.setAdapter(adapter);
     }
