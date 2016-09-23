@@ -21,8 +21,8 @@ Well, I think I love Android now...
 
 Give you some ScreenShots
 
-![ScreenShot1](http://obrxrslya.bkt.clouddn.com/SDCardTest_1.png)
-![ScreenShot2](http://obrxrslya.bkt.clouddn.com/SDCardTest_2.png)
+![ScreenShot1](http://obrxrslya.bkt.clouddn.com/SDCardTest_1_small.png)
+![ScreenShot2](http://obrxrslya.bkt.clouddn.com/SDCardTest_2_small.png)
 
 Comments will be added sooner!
 
