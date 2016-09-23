@@ -13,6 +13,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import com.nostra13.universalimageloader.*;
+import com.nostra13.universalimageloader.core.ImageLoader;
 
 import org.w3c.dom.Text;
 
@@ -68,8 +70,7 @@ public class GridItemAdapter extends BaseAdapter {
         } else {
             item = (GridItemView) convertView.getTag();
         }
-        Bitmap bm = BitmapFactory.decodeFile(data.filepath);
-        item.imageView.setImageBitmap(bm);
+        ImageLoader.getInstance().displayImage("file://"+data.filepath,item.imageView);
         item.filename.setText(data.filename);
         return convertView;
     }

@@ -1,11 +1,13 @@
 package com.example.vikingwarlock.sdcardproject;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Adapter;
+import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.SimpleAdapter;
@@ -22,6 +24,14 @@ public class SDView extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sdview);
+        GridView gv = (GridView) findViewById(R.id.gridView);
+        if (gv != null) {
+
+            gv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
+                }
+            });
+        }
     }
 
     @Override
@@ -35,9 +45,6 @@ public class SDView extends AppCompatActivity {
             Toast.makeText(this, "SDCard Not Writable", Toast.LENGTH_LONG).show();
             return;
         }
-//        Toast.makeText(this,"Permission granted!!",Toast.LENGTH_LONG).show();
-        Toast.makeText(this, SDCardHelper.storagePath(), Toast.LENGTH_LONG).show();
-//        System.out.println(SDCardHelper.getFileList());
         bindData();
     }
 
