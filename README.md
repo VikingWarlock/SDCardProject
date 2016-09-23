@@ -32,5 +32,6 @@ Comments will be added sooner!
 
 You'd better use `Android Studio`
 
-Viking Warlock
-2016-09-23
+### Viking Warlock
+
+### 2016-09-23
